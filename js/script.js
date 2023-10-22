@@ -98,10 +98,10 @@ window.addEventListener('DOMContentLoaded', () => {
             container.style.clipPath = `polygon(${slicesTop[i - 2]}% 0, ${slicesTop[i - 1]}% 0, ${slicesBottom[i - 1]}% 100%, ${slicesBottom[i - 2]}% 100%)`;
         }
     }
-
+});
      // #Validacion .contact
     document.addEventListener("DOMContentLoaded", function() {
-        const formulario = document.querySelector(".formulario");
+        const formulario = document.querySelector("#formulario");
       
         formulario.addEventListener("submit", function(event) {
           event.preventDefault();
@@ -142,5 +142,5 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // }
     // #endregion
-});
+
 
