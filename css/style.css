@@ -5,6 +5,10 @@
     --navitem-bg-hover-color: hsl(100, 0%, 20%);
     --navitem-text-hover-color: white;
     --warning-color: hsl(350, 80%, 45%);
+    --flight-title-bg-color: hsl(210, 20%, 60%);
+    --flight-content-bg-color: hsl(200, 20%, 70%);
+    --input-field-bg-color: hsl(210, 0%, 85%);
+    --input-field-bg-highlight-color: hsl(160, 40%, 85%);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -198,6 +202,11 @@ main {
 
 main > section {
     width: 70%;
+}
+
+.full_width {
+    width: 100%;
+    padding-inline: 10%;
 }
 
 .references_main {
@@ -436,22 +445,11 @@ button:hover {
     width: 0px;
 }
 
-/* ::-webkit-scrollbar-thumb {
-    background-color: hsl(100, 0%, 20%);
-} */
-
-/* PSEUDO SCROLLBAR --------- TODO
-.body_scrollbar {
-    width: .5em;
-    height: 100%;
-    background-color: white;
-    border-radius: 100vw;
-    border: solid 2px dimgray;
-    position: absolute;
-    right: 0px;
-} */
-
 /* #region Index */
+.flight {
+    width: 100%;
+}
+
 .index_main {
     width: 100%;
     background-color: var(--bg-color);
@@ -485,61 +483,172 @@ button:hover {
 /* #region Index Main Hot Spots */
 .hot_spots {
     text-align: center;
-    padding: 5rem 0px;
+    padding: 3rem 0px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
+#hot_spots_mobile_display {
+    display: grid;
+    row-gap: 2rem;
+    grid-template-columns: 100%;
+    grid-template-rows: 20vh 20vh 20vh;
+}
+
+#hot_spots_carousel {
+    display: none;
+}
+
 .hot_spot_item {
-    position: relative;
-    background-repeat: no-repeat;
+    filter: grayscale(20%);
     background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
     border: solid 2px black;
-    border-radius: 10px;
-    margin: 1rem 0px;
-    transition: transform .3s, box-shadow .3s;
-    transition-timing-function: ease-out;
     z-index: 4;
 }
 
-.hot_spot_item:hover {
-    transform: scale(1.2);
-    z-index: 0;
-    box-shadow: 0 0 10px cyan;
+.hot_spot_item a {
+    text-decoration: none;
 }
 
 .hot_spot_text {
-    color: orange;
-    padding: 4rem 0px;
-    background-color: rgba(30, 30, 30, .5);
-}
-
-.hot_spot_drop {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: black;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    transition: right .3s, border .3s;
-    z-index: -5;
-}
-
-.hot_spot_item_bg_img {
-    max-height: 100%;
-    object-fit: cover;
-}
-
-.hot_spot_item:hover .hot_spot_drop{
-    right: -10px;
-    box-shadow: 0 0 10px cyan;
+    color: lightgray;
+    padding-top: 9vh;
 }
 /* #endregion */
 
 /* #endregion */
+.flight_title {
+    background-color: var(--flight-title-bg-color);
+    border: .5px solid gray;
+    display: flex;
+    justify-content: space-between;
+}
 
+.flight_title * {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.flight_title h3 {
+    flex-grow: .5;
+    padding-left: 1rem;
+    border-right: .5px solid gray;
+}
+
+.flight_price {
+    margin: auto;
+    font-size: large;
+}
+
+/* .flight_expand {
+    border: none;
+    width: 5%;
+    transform: rotate(90deg);
+} */
+
+.flight_content {
+    background-color: var(--flight-content-bg-color);
+    margin-inline: .5rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.flight_content form {
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.flight_data {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.flight_data div {
+    position: relative;
+    width: 50%;
+}
+
+.second_flight {
+    margin-block: 2rem;
+}
+
+.text_field * {
+    display: block;
+    margin-block: 1rem;
+}
+
+.checkout div {
+    margin-bottom: 2rem;
+}
+
+.card_data {
+    display: none;
+}
+
+.alias_data {
+    display: none;
+}
+
+.discounts {
+    display: block;
+}
+
+.submit_options {
+    display: flex;
+    justify-content: space-between;
+}
+
+.submit_options button {
+    background-color: var(--input-field-bg-color);
+    width: 10rem;
+    height: 3rem;
+    border: none;
+}
+
+.submit_options button:hover {
+    background-color: var(--input-field-bg-highlight-color);
+    border: 1px solid black;
+}
+
+input {
+    background-color: var(--input-field-bg-color);
+    height: 2rem;
+    border: none;
+}
+
+input:focus {
+    background-color: var(--input-field-bg-highlight-color);
+    outline: none;
+}
+
+input[type=text] {
+    font-size: medium;
+    width: 90%;
+    padding: .5rem 1rem;
+}
+
+input[type=number] {
+    width: 3em;
+    margin-left: 2rem;
+}
+
+input[type=checkbox] {
+    height: 1rem;
+    width: 1rem;
+}
+
+select {
+    margin-left: 2rem;
+}
+
+/* #region Flights */
+
+/* #endregion */
 .warning {
     color: var(--warning-color);
     /* text-shadow: 0 0 2px black; */
@@ -579,22 +688,60 @@ button:hover {
 }
 
 @media only screen and (min-width: 426px) {
+    #hot_spots_carousel {
+        display: block;
+        position: relative;
+        width: 60vw;
+        height: 20rem;
+        margin-inline: 10vw;
+        overflow: hidden;
+    }
+
     .hot_spots {
-        display: grid;
-        row-gap: 2rem;
         column-gap: 3%;
         grid-template-columns: 24% 24% 24%;
         grid-template-rows: 3rem;
     }
-
-    .hot_spots_title {
-        grid-area: 1 / 1 / span 1 / span 3;
-    }
     
     .hot_spot_item {
+        position: absolute;
         width: 100%;
         height: 100%;
         margin: 0px;
+        left: 0px;
+        transition: left .5s ease-out;
+    }
+
+    .hot_spot_text {
+        padding-top: 9rem;
+    }
+
+    .slider_arrow {
+        background-color: rgba(147, 149, 151, .8);
+        text-align: center;
+        position: absolute;
+        width: 2rem;
+        height: 4rem;
+        padding: .2rem;
+        top: 40%;
+        z-index: 10;
+    }
+
+    .slider_arrow img {
+        width: 100%;
+        height: 100%;
+    }
+
+    #left_arrow {
+        left: 2px;
+    }
+
+    #right_arrow {
+        right: 2px;
+    }
+
+    #hot_spots_mobile_display {
+        display: none;
     }
 
     #zone_map {
@@ -727,6 +874,7 @@ button:hover {
         background-size: 110%;
         background-position: 20% 50%;
         box-shadow: inset 0 0 100px rgba(30, 30, 30, 1);
+        filter: grayscale(20%);
         z-index: 10;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) !important;
         transition: clip-path .5s, z-index .01s, background-size .5s, background-color .5s;

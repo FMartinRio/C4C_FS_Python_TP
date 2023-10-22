@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/logo2.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/icons/logo2.png" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js"></script>
-    <title>Document</title>
+    <title>Todo Viajes</title>
 </head>
 <body>
     <nav></nav>
@@ -14,32 +14,46 @@
     <main class="index_main">
         <span class="body_scrollbar"></span>
         <section class="welcome">
-            <h1>Bienvenido a PlaceHolderName</h1>
+            <h1>Bienvenido a Todo Viajes</h1>
             <h3>Aca te podes enterar de los mejores lugares para visitar y encontrar el mejor precio para viajar</h3>
             <input type="text" name="main_search" id="main_search" placeholder="Ingresa tu destino...">
         </section>
     
         <section class="hot_spots">
             <h3 class="hot_spots_title">Conoce los lugares que todo el mundo esta visitando en este momento</h3>
-            <div class="hot_spot_item">
-                <div class="hot_spot_drop"></div>
-                <div class="hot_spot_item_bg_img" style="background-image: url('../img/Argentina/argentina.jpg');">
+
+            <div id="hot_spots_mobile_display">
+                <div class="hot_spot_item" style="background-image: url('../img/Argentina/argentina.jpg');">
                     <a href="cordoba_capital.html">
                         <h3 class="hot_spot_text">Argentina</h3>
                     </a>
                 </div>
-            </div>
-            <div class="hot_spot_item">
-                <div class="hot_spot_drop"></div>
-                <div class="hot_spot_item_bg_img" style="background-image: url('../img/Brasil/brasil.jpg');">
+                <div class="hot_spot_item" style="background-image: url('../img/Brasil/brasil.jpg');">
                     <a href="brasil.html">
                         <h3 class="hot_spot_text">Brasil</h3>
                     </a>
                 </div>
+                <div class="hot_spot_item" style="background-image: url('../img/Uruguay/uruguay.webp');">
+                    <a href="uruguay.html">
+                        <h3 class="hot_spot_text">Uruguay</h3>
+                    </a>
+                </div>
             </div>
-            <div class="hot_spot_item">
-                <div class="hot_spot_drop"></div>
-                <div class="hot_spot_item_bg_img" style="background-image: url('../img/Uruguay/uruguay.webp');">
+
+            <div id="hot_spots_carousel">
+                <button id="left_arrow" class="slider_arrow" ><img src="img/icons/arrow-left-solid.svg" alt="Scroll carousel left"></button>
+                <button id="right_arrow" class="slider_arrow" ><img src="img/icons/arrow_right_solid.svg" alt="Scroll carousel right"></button>
+                <div class="hot_spot_item" style="background-image: url('../img/Argentina/argentina.jpg');">
+                    <a href="cordoba_capital.html">
+                        <h3 class="hot_spot_text">Argentina</h3>
+                    </a>
+                </div>
+                <div class="hot_spot_item" style="background-image: url('../img/Brasil/brasil.jpg');">
+                    <a href="brasil.html">
+                        <h3 class="hot_spot_text">Brasil</h3>
+                    </a>
+                </div>
+                <div class="hot_spot_item" style="background-image: url('../img/Uruguay/uruguay.webp');">
                     <a href="uruguay.html">
                         <h3 class="hot_spot_text">Uruguay</h3>
                     </a>
@@ -62,4 +76,11 @@
     make searchbars work
 
     nav destinos dropdown -> make bigger
+
+    mas puntos de corte
+    (vuelos 1 columna mobile 2 tablet 3 pc)
+
+    mayor padding entre texto/imagen
+
+    make carousel
  -->
