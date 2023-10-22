@@ -348,20 +348,88 @@ footer img {
     font-size: 80%; */
 }
 
-.contact {
-    padding: .8rem .4rem;
+.contact 
+
+body {
+    background-color: aliceblue; /* Este es un tono de blanco suave */
+    font-family: Verdana, Geneva, Tahoma, sans-serif, sans-serif; /* Tipo de fuente */
+
 }
 
-.source_links {
-    padding: .8rem .4rem;
-    display: flex;
+.container {
+    background-color: hsl(240, 12%, 53%);
+    width: 60%; /* Reducimos el ancho del contenedor */
+    margin: 0 auto; /* Centramos el contenedor */
+    margin-top: 100px;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px gray;
+    color: aliceblue;
+}
+
+h3 {
+    margin: 0px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.formulario {
+    justify-content: center;
     flex-direction: column;
-    justify-content: space-between;
+    display: flex
 }
 
-.source_links a {
-    margin-bottom: .8rem;
+.caja {
+    margin: 10px 0; /* Añadimos espacio entre los elementos */
+    text-align: left; /* Alineamos el texto a la izquierda */
 }
+
+.caja label {
+    display: block; /* Hacemos que cada label ocupe toda la línea */
+    font-weight: bold;
+    margin-bottom: 5px; /* Añadimos espacio debajo del label */
+}
+
+.caja input {
+    width: 100%; /* Hacemos que el input ocupe todo el espacio disponible */
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.caja input:focus{
+    outline: none;
+    border-bottom: 3px solid rgb(0, 149, 255);
+}
+
+.caja textarea {
+    flex: 1;
+    padding: 5px;
+    width: calc(100% - 80px); /* Ancho igual al resto de los campos */
+    max-width: calc(100% - 80px); /* Ancho máximo igual al resto de los campos */
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+.caja textarea:focus {
+    outline: none;
+    border-bottom: 3px solid rgb(0, 149, 255);
+}
+
+button {
+    background-color: rgb(177, 196, 196);
+    padding: 6px 20px; /* Añadimos más espacio alrededor del botón */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all ease 300ms;
+    color: #fff;
+    margin-top: 10px; /* Añadimos espacio arriba del botón */
+}
+
+button:hover {
+    background-color: #5a5656;
+}
+
 /* #endregion */
 
 ::-webkit-scrollbar {

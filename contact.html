@@ -10,19 +10,45 @@
 </head>
 <body>
     <nav></nav>
-
-    
     <main>
-        <aside>
-            
-        </aside>
-        <section>
+        <div class="container">
+        <h3>FORMULARIO DE CONTACTO</h3>
+        <form class="formulario">
+            <div class="caja">
+                <label for="Nombre">Nombre</label>
+                <input type="text" placeholder="Ingrese su Nombre" id="Nombre"
+                    title="Solo se permiten letras y espacios" >
+            </div>
+            <div class="caja">
+                <label for="Apellido">Apellido</label>
+                <input type="text" placeholder="Ingrese su Apellido" id="Nombre"
+                    title="Solo se permiten letras y espacios" >
+            </div>
+            <div class="caja">
+                <label for="FechaNacimiento">Fecha de Nacimiento</label>
+                <input type="date" id="FechaNacimiento" >
+            </div>
+            <div class="caja">
+                <label for="Telefono">Teléfono</label>
+                <input type="tel" placeholder="Ingrese su teléfono" id="Telefono"
+                    title="Ingrese un número de teléfono argentino válido (10 dígitos)">
+            </div>
+            <div class="caja">
+                <label for="Correo">Correo</label>
+                <input type="email" placeholder="Ingrese su correo electronico" id="Correo">
+            </div>
+            <div class="caja">
+                <label for="Consulta">Consulta</label>
+                <textarea id="Consulta" rows="4" placeholder="Escriba su consulta aquí" maxlength="1500"></textarea>
+            </div>
+            <button id="Enviar" type="submit">ENVIAR</button>
+        </form>
 
-        </section>
-    </main>
+    </div></main>
 
     <footer></footer>
     <script src="js/templates.js"></script>
+    
 </body>
 </html>
 
