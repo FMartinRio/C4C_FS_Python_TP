@@ -14,7 +14,7 @@ let navTemplate = `
     <a href="contact.html">
         <li>Contacto</li>
     </a>
-    <a href="flights.html">
+    <a href="vuelos.html">
         <li>Vuelos</li>
     </a>
 </ul>
@@ -34,7 +34,7 @@ let navTemplate = `
         <a href="uruguay.html">
             <li>Uruguay</li>
         </a>
-        <a href="flights.html">
+        <a href="vuelos.html">
             <li>Vuelos</li>
         </a>
     </ul>
