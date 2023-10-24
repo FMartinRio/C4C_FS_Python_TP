@@ -208,7 +208,7 @@ main > section {
 
 .full_width {
     width: 100%;
-    padding-inline: 10%;
+    padding: 2rem 10%;
 }
 
 .references_main {
@@ -493,7 +493,7 @@ footer img {
 }
 
 .hot_spot_item {
-    filter: grayscale(20%);
+    filter: drop-shadow(50%);
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -506,8 +506,13 @@ footer img {
 }
 
 .hot_spot_text {
-    color: lightgray;
-    padding-top: 9vh;
+    color: white;
+}
+
+.drop_shadow {
+    background-color: rgba(30, 30, 30, .4);
+    margin: auto;
+    padding: auto;
 }
 /* #endregion */
 
@@ -663,6 +668,11 @@ footer img {
             padding: 1rem;
         }
 
+        .forecast_title {
+            text-align: center;
+
+        }
+
         .forecast .container {
             background-color: hsl(100, 0%, 20%);
             color: white;
@@ -744,10 +754,6 @@ footer img {
         margin: 0px;
         left: 0px;
         transition: left .5s ease-out;
-    }
-
-    .hot_spot_text {
-        padding-top: 9rem;
     }
 
     .slider_arrow {
@@ -935,37 +941,4 @@ footer img {
     .showcase_container:hover .showcase_container_title, .showcase_container:hover .showcase_container_text {
         left: 0px;
     }
-
-    /* .adder {
-        background-color: darkgreen;
-        color: white;
-        font-size: 16px;
-        text-align: center;
-        width: 30px;
-        padding: .2em;
-        border: 3px solid darkgreen;
-        transition: background-color .5s, color .5s;
-    }
-
-    .adder:hover {
-        background-color: white;
-        color: black;
-    }
-
-    .remover {
-        background-color: darkred;
-        color: white;
-        font-size: 16px;
-        text-align: center;
-        width: 30px;
-        padding: .2em;
-        border: 3px solid darkred;
-        transition: background-color .5s, color .5s;
-    }
-
-    .remover:hover {
-        background-color: white;
-        color: black;
-    } */
-    /* #endregion */
 }

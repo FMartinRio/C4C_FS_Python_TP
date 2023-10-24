@@ -25,7 +25,7 @@ let navTemplate = `
 <div id="hb_menu" class="nav_hb_menu_dropdown" tabindex="3">
     <img src="img/icons/hamburger_menu.png" alt="hamburger_menu">
     <ul id="nav_list">
-        <a href="cordoba_capital.html">
+        <a href="argentina.html">
             <li>Argentina</li>
         </a>
         <a href="brasil.html">
@@ -33,6 +33,9 @@ let navTemplate = `
         </a>
         <a href="uruguay.html">
             <li>Uruguay</li>
+        </a>
+        <a href="contact.html">
+            <li>Contacto</li>
         </a>
         <a href="vuelos.html">
             <li>Vuelos</li>

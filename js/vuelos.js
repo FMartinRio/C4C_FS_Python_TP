@@ -16,6 +16,7 @@ window.addEventListener("DOMContentLoaded", () => {
         let confirm = flight.querySelector(".confirm");
         let success = flight.querySelector(".flight_confirmed");
         let form = flight.querySelector(".form");
+        let date = flight.querySelector(".flight_date");
         
         content.style.display = "none";
         secondFlightdata.style.display = "none";

@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 hideHBDropdownContent();
             } else {
                 CONTAINER.style.maxWidth = "50vw";
-                CONTAINER.style.maxHeight = "20rem";
+                CONTAINER.style.maxHeight = "40rem";
                 CONTAINER.style.backgroundColor = "var(--navitem-bg-hover-color)";
                 HBMENU.style.backgroundColor = "var(--navitem-bg-hover-color)";
             }
