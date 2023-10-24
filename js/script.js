@@ -167,10 +167,10 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
-
+});
      // #Validacion .contact
     document.addEventListener("DOMContentLoaded", function() {
-        const formulario = document.querySelector(".formulario");
+        const formulario = document.querySelector("#formulario");
       
         formulario.addEventListener("submit", function(event) {
           event.preventDefault();
@@ -211,5 +211,5 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // }
     // #endregion
-});
+
 
