@@ -6,6 +6,7 @@
     --navitem-text-hover-color: white;
     --warning-color: hsl(350, 80%, 45%);
     --flight-title-bg-color: hsl(210, 20%, 60%);
+    --flight-title-bg-dark-color: hsl(210, 20%, 40%);
     --flight-content-bg-color: hsl(200, 20%, 70%);
     --input-field-bg-color: hsl(210, 0%, 85%);
     --input-field-bg-highlight-color: hsl(160, 40%, 85%);
@@ -131,6 +132,18 @@ nav {
     z-index: 20;
 }
 
+#nav_list a {
+    color: white;
+    width: 100%;
+    height: 5rem;
+    padding-top: 2rem;
+    border-bottom: solid 1px black;
+}
+
+#nav_list a:last-child {
+    border: none;
+}
+
 #desk_nav_list {
     background-color: var(--bg-dark-color);
     position: relative;
@@ -146,17 +159,6 @@ nav {
 #desk_nav_list a:hover {
     background-color: var(--navitem-bg-hover-color);
     color: var(--navitem-text-hover-color);
-}
-
-#nav_list a {
-    width: 100%;
-    height: 5rem;
-    padding-top: 2rem;
-    border-bottom: solid 1px black;
-}
-
-#nav_list a:last-child {
-    border: none;
 }
 
 .nav_hb_menu_dropdown {
@@ -334,7 +336,7 @@ footer {
     background-color: var(--bg-color);
     border-top: solid 1px black;
     width: 100%;
-    padding: 0px 10%;
+    padding: 1rem 10%;
     display: flex;
     justify-content: space-between;
 }
@@ -348,7 +350,6 @@ footer img {
     flex-direction: column;
     justify-content: flex-start;
     align-content: space-between;
-    padding: .8rem .4rem;
 }
 
 .social_links a {
@@ -356,20 +357,13 @@ footer img {
     /* float: left;
     font-size: 80%; */
 }
-
-.contact 
-
-body {
-    background-color: aliceblue; /* Este es un tono de blanco suave */
-    font-family: Verdana, Geneva, Tahoma, sans-serif, sans-serif; /* Tipo de fuente */
-
-}
+/* #endregion */
 
 .container {
     background-color: hsl(240, 12%, 53%);
     width: 60%; /* Reducimos el ancho del contenedor */
     margin: 0 auto; /* Centramos el contenedor */
-    margin-top: 100px;
+    margin-block: 100px;
     padding: 20px;
     border: 1px solid gray;
     border-radius: 8px;
@@ -377,7 +371,7 @@ body {
     color: aliceblue;
 }
 
-h3 {
+.formulario h3 {
     margin: 0px;
     text-align: center;
     margin-bottom: 10px;
@@ -424,7 +418,7 @@ h3 {
     border-bottom: 3px solid rgb(0, 149, 255);
 }
 
-button {
+#Enviar {
     background-color: rgb(177, 196, 196);
     padding: 6px 20px; /* Añadimos más espacio alrededor del botón */
     border: none;
@@ -435,11 +429,9 @@ button {
     margin-top: 10px; /* Añadimos espacio arriba del botón */
 }
 
-button:hover {
+#Enviar:hover {
     background-color: #5a5656;
 }
-
-/* #endregion */
 
 ::-webkit-scrollbar {
     width: 0px;
@@ -520,135 +512,177 @@ button:hover {
 /* #endregion */
 
 /* #endregion */
-.flight_title {
-    background-color: var(--flight-title-bg-color);
-    border: .5px solid gray;
-    display: flex;
-    justify-content: space-between;
-}
-
-.flight_title * {
-    background-color: rgba(255, 255, 255, 0);
-}
-
-.flight_title h3 {
-    flex-grow: .5;
-    padding-left: 1rem;
-    border-right: .5px solid gray;
-}
-
-.flight_price {
-    margin: auto;
-    font-size: large;
-}
-
-/* .flight_expand {
-    border: none;
-    width: 5%;
-    transform: rotate(90deg);
-} */
-
-.flight_content {
-    background-color: var(--flight-content-bg-color);
-    margin-inline: .5rem;
-    display: flex;
-    justify-content: space-around;
-}
-
-.flight_content form {
-    display: block;
-    margin-bottom: 2rem;
-}
-
-.flight_data {
-    margin-bottom: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-between;
-}
-
-.flight_data div {
-    position: relative;
-    width: 50%;
-}
-
-.second_flight {
-    margin-block: 2rem;
-}
-
-.text_field * {
-    display: block;
-    margin-block: 1rem;
-}
-
-.checkout div {
-    margin-bottom: 2rem;
-}
-
-.card_data {
-    display: none;
-}
-
-.alias_data {
-    display: none;
-}
-
-.discounts {
-    display: block;
-}
-
-.submit_options {
-    display: flex;
-    justify-content: space-between;
-}
-
-.submit_options button {
-    background-color: var(--input-field-bg-color);
-    width: 10rem;
-    height: 3rem;
-    border: none;
-}
-
-.submit_options button:hover {
-    background-color: var(--input-field-bg-highlight-color);
-    border: 1px solid black;
-}
-
-input {
-    background-color: var(--input-field-bg-color);
-    height: 2rem;
-    border: none;
-}
-
-input:focus {
-    background-color: var(--input-field-bg-highlight-color);
-    outline: none;
-}
-
-input[type=text] {
-    font-size: medium;
-    width: 90%;
-    padding: .5rem 1rem;
-}
-
-input[type=number] {
-    width: 3em;
-    margin-left: 2rem;
-}
-
-input[type=checkbox] {
-    height: 1rem;
-    width: 1rem;
-}
-
-select {
-    margin-left: 2rem;
-}
 
 /* #region Flights */
+    .flights_body {
+        display: flex;
+        flex-direction: column;
+    }
 
+    .flight div {
+        padding-inline: .3rem;
+    }
+
+    .flight_title {
+        background-color: var(--flight-title-bg-color);
+        border: .5px solid gray;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .flight_title * {
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+    .flight_title h2 {
+        flex-grow: 1;
+        padding-left: 1rem;
+        border-right: .5px solid gray;
+    }
+
+    .flight_title:hover {
+        background-color: var(--flight-title-bg-dark-color);
+    }
+
+    .flight_price {
+        margin: auto 1rem;
+        font-size: large;
+    }
+
+    /* .flight_expand {
+        border: none;
+        width: 5%;
+        transform: rotate(90deg);
+    } */
+
+    .flight_content {
+        background-color: var(--flight-content-bg-color);
+        margin-inline: .5rem;
+        display: none;
+        justify-content: space-around;
+    }
+
+    .flight_content form {
+        display: block;
+        margin-bottom: 2rem;
+    }
+
+    .flight_data {
+        margin-bottom: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: space-between;
+    }
+
+    .flight_data div {
+        position: relative;
+        width: 50%;
+    }
+
+    .second_flight {
+        margin-block: 2rem;
+    }
+
+    .second_flight_data {
+        display: none;
+    }
+
+    .text_field * {
+        display: block;
+        margin-block: 1rem;
+    }
+
+    .checkout div {
+        margin-bottom: 2rem;
+    }
+
+    .card_data {
+        display: none;
+    }
+
+    .alias_data {
+        display: none;
+    }
+
+    .discounts {
+        display: block;
+    }
+
+    .submit_options {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .submit_options button {
+        background-color: var(--input-field-bg-color);
+        width: 10rem;
+        height: 3rem;
+        border: none;
+    }
+
+    .submit_options button:hover {
+        background-color: var(--input-field-bg-highlight-color);
+        border: 1px solid black;
+    }
+
+    .flight input {
+        background-color: var(--input-field-bg-color);
+        height: 2rem;
+        border: none;
+    }
+
+    .flight input:focus {
+        background-color: var(--input-field-bg-highlight-color);
+        outline: none;
+    }
+
+    .flight input[type=text] {
+        font-size: medium;
+        width: 90%;
+        padding: .5rem 1rem;
+    }
+
+    .flight input[type=number] {
+        width: 3em;
+        margin-left: 2rem;
+    }
+
+    .flight input[type=checkbox] {
+        height: 1rem;
+        width: 1rem;
+    }
+
+    .flight select {
+        margin-left: 2rem;
+    }
+
+    /* #region Forecast */
+        .forecast {
+            width: 100%;
+            padding: 1rem;
+        }
+
+        .forecast .container {
+            background-color: hsl(100, 0%, 20%);
+            color: white;
+            width: 100%;
+            margin: 0;
+        }
+
+        .forecast .box {
+            background-color: hsl(100, 0%, 40%);
+            margin: 1rem;
+            padding: 1rem;
+        }
+
+        .forecast_icon {
+            width: 2rem;
+            margin-right: 1rem;
+        }
+    /* #endregion */
 /* #endregion */
+
 .warning {
     color: var(--warning-color);
     /* text-shadow: 0 0 2px black; */
@@ -762,6 +796,20 @@ select {
 
     iframe {
         height: 300px;
+    }
+
+    .forecast .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .forecast h2 {
+        width: 100%;
+    }
+
+    .forecast .box {
+        flex-grow: 1;
     }
 }
 
