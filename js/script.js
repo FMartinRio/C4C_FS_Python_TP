@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
         if (ASIDE) ASIDE.style.left = "-80vw";
 
         window.onscroll = function adjustNavBar() {
-            if(parseInt(ASIDE.style.left) < 0) {
+            if(!ASIDE || parseInt(ASIDE.style.left) < 0) {
                 if (mobile.matches) {
                     if (window.scrollY > lastVPosition) {
                         NAVBAR.style.top = "-100px";
@@ -36,9 +36,9 @@ window.addEventListener('DOMContentLoaded', () => {
                 hideHBDropdownContent();
             } else {
                 CONTAINER.style.maxWidth = "50vw";
-                CONTAINER.style.maxHeight = "20rem";
-                CONTAINER.style.backgroundColor = "var(--bg-highlight-color)";
-                HBMENU.style.backgroundColor = "var(--bg-highlight-color)";
+                CONTAINER.style.maxHeight = "40rem";
+                CONTAINER.style.backgroundColor = "var(--navitem-bg-hover-color)";
+                HBMENU.style.backgroundColor = "var(--navitem-bg-hover-color)";
             }
         };
     }
