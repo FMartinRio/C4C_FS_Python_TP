@@ -9,6 +9,7 @@ let navTemplate = `
     <ul id="destinations_dropdown_content">
         <a href="argentina.html"><li>Argentina</li></a>
         <a href="brasil.html"><li>Brasil</li></a>
+        <a href="uruguay.html"><li>Uruguay</li></a>
     </ul>
     <a href="contact.html">
         <li>Contacto</li>
@@ -30,6 +31,10 @@ let navTemplate = `
         <a href="brasil.html">
             <li>Brasil</li>
         </a>
+        <a href="uruguay.html">
+            <li>Uruguay</li>
+        </a>
+        
         <a href="contact.html">
             <li>Contacto</li>
         </a>
@@ -121,6 +126,12 @@ let asideTemplate = `
             <a href="recife.html"><li>Recife</li></a>
             <a href="rio_de_janeiro.html"><li>Rio de Janeiro</li></a>
             <a href="salvador_de_bahia.html"><li>Salvador de Bahia</li></a>
+        </ul>
+    </li></a>
+
+    <a href="uruguay.html"><li><strong>Uruguay</strong>
+        <ul>
+            <a href="montevideo.html"><li>Montevideo</li></a>
         </ul>
     </li></a>
 </ul>
