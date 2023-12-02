@@ -4,6 +4,11 @@ let navTemplate = `
         <img src="img/icons/logo2.png" alt="site_logo">
     </a>
 </div>
+<div class="login_icon">
+    <a href="login.html">
+        <img src="img/icons/login.png" alt="login">
+    </a>
+</div>
 <ul id="desk_nav_list">
     <a id="destinations_dropdown" href="index.html"><li>Destinos</li></a>
     <ul id="destinations_dropdown_content">

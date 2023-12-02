@@ -87,6 +87,16 @@ nav {
     object-fit: fill;
 }
 
+.login_icon {
+    padding: 1rem 1.5rem;
+    text-align: center;
+}
+
+.login_icon img {
+    max-height: 100%;
+    object-fit: fill;
+}
+
 .nav_search_bar {
     display: flex;
     flex-direction: row;
@@ -691,6 +701,58 @@ footer img {
             margin-right: 1rem;
         }
     /* #endregion */
+/* #endregion */
+
+/* #region LogIn */
+.login_form {
+    background-color: rgba(200, 200, 200, .8);
+    width: fit-content;
+    margin: 5rem auto;
+    /* border: 2px solid black; */
+    border-radius: 10px;
+}
+
+.login_form h2 {
+    text-align: center;
+}
+
+.login_form form {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.login_form form * {
+    margin-block: 1rem;
+}
+
+.login_form form input {
+    background-color: rgba(50, 50, 50, .3);
+    color: white;
+    font-size: large;
+    margin-top: 0px;
+    padding: 1rem .5rem;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.login_form form input:focus {
+    outline: none;
+    border-bottom: 3px solid whitesmoke;
+}
+
+.login_form form button {
+    background-color: rgb(180, 180, 180);
+    width: fit-content;
+    margin-inline: auto;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.login_form ::placeholder {
+    color: rgba(200, 200, 200, .6);
+}
 /* #endregion */
 
 .warning {

@@ -6,6 +6,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const NAVBAR = document.querySelector("nav");
     const SIDEMAPS = document.getElementById("sidemaps");
     const SIDEMAPSEXP = document.getElementById("sidemaps_expand");
+    const LOGINFORM = document.querySelector("#login");
 
     let lastVPosition = window.scrollY;
     let mobile = window.matchMedia("(max-width: 425px)")
@@ -168,48 +169,41 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
-     // #Validacion .contact
-    document.addEventListener("DOMContentLoaded", function() {
-        const formulario = document.querySelector("#formulario");
-      
+
+
+
+// #Validacion .contact
+document.addEventListener("DOMContentLoaded", function() {
+    const formulario = document.querySelector("#formulario");
+    
+    if (formulario) {
         formulario.addEventListener("submit", function(event) {
-          event.preventDefault();
-      
-          const nombre = document.getElementById("Nombre").value;
-          const apellido = document.getElementById("Apellido").value;
-          const fechaNacimiento = document.getElementById("FechaNacimiento").value;
-          const telefono = document.getElementById("Telefono").value;
-          const correo = document.getElementById("Correo").value;
-          const consulta = document.getElementById("Consulta").value;
-      
-          // Validar nombre y apellido solo con letras y espacios
-          const nombreValido = /^[A-Za-z\s]+$/.test(nombre);
-          const apellidoValido = /^[A-Za-z\s]+$/.test(apellido);
-      
-          // Validar teléfono con formato argentino
-          const telefonoValido = /^[0-9]{2}[0-9]{8}$/.test(telefono);
-      
-          // Validar correo electrónico
-          const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
-      
-          if (nombreValido && apellidoValido && telefonoValido && correoValido) {
-            // Si todos los campos son válidos, se puede enviar el formulario
-            formulario.submit();
-          } else {
-            // Si hay campos inválidos, mostrar un mensaje de error
-            alert("Por favor, complete los campos correctamente.");
-          }
+            event.preventDefault();
+        
+            const nombre = document.getElementById("Nombre").value;
+            const apellido = document.getElementById("Apellido").value;
+            const fechaNacimiento = document.getElementById("FechaNacimiento").value;
+            const telefono = document.getElementById("Telefono").value;
+            const correo = document.getElementById("Correo").value;
+            const consulta = document.getElementById("Consulta").value;
+        
+            // Validar nombre y apellido solo con letras y espacios
+            const nombreValido = /^[A-Za-z\s]+$/.test(nombre);
+            const apellidoValido = /^[A-Za-z\s]+$/.test(apellido);
+        
+            // Validar teléfono con formato argentino
+            const telefonoValido = /^[0-9]{2}[0-9]{8}$/.test(telefono);
+        
+            // Validar correo electrónico
+            const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo);
+        
+            if (nombreValido && apellidoValido && telefonoValido && correoValido) {
+                // Si todos los campos son válidos, se puede enviar el formulario
+                formulario.submit();
+            } else {
+                // Si hay campos inválidos, mostrar un mensaje de error
+                alert("Por favor, complete los campos correctamente.");
+            }
         });
-      });
-
-    // To Be Done with servers
-    // function addShowcaseContainer() {
-
-    // }
-
-    // function removeShowcaseContainer() {
-
-    // }
-    // #endregion
-
-
+    }
+});
