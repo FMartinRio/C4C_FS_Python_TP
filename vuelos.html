@@ -18,7 +18,7 @@
 
             <div class="flight">
                 <div class="flight_title">
-                    <h2 name="Cordoba">Cordoba - Cordoba</h2>
+                    <h2 name="Cordoba">Cordoba - Argentina</h2>
                     <span class="flight_price">$ 33.780,44</span>
                 </div>
                 <div class="flight_content">
@@ -34,7 +34,7 @@
                             </div>
                             <div class="nontext_field">
                                 <label for="">Cantidad</label>
-                                <input class="flight_quantity" type="number" name="" value="1">
+                                <input class="flight_quantity" type="number" name="" min="1" max="99" value="1">
                             </div>
                             <div class="nontext_field">
                                 <label for="">Fecha</label>
@@ -56,7 +56,7 @@
                         <div class="flight_data second_flight_data">
                             <div class="nontext_field">
                                 <label for="">Cantidad</label>
-                                <input class="flight_quantity" type="number" name="" value="0">
+                                <input class="flight_quantity" type="number" name="" min="1" max="99" value="1">
                             </div>
                             <div class="nontext_field">
                                 <label for="">Fecha</label>
@@ -105,7 +105,7 @@
             </div>
             <div class="flight">
                 <div class="flight_title">
-                    <h2 name="Bariloche">Bariloche - Rio Negro</h2>
+                    <h2 name="Bariloche">Bariloche - Argentina</h2>
                     <span class="flight_price">$ 47.021,91</span>
                 </div>
                 <div class="flight_content">
@@ -121,7 +121,7 @@
                             </div>
                             <div class="nontext_field">
                                 <label for="">Cantidad</label>
-                                <input class="flight_quantity" type="number" name="" value="1">
+                                <input class="flight_quantity" type="number" name="" min="1" max="99" value="1">
                             </div>
                             <div class="nontext_field">
                                 <label for="">Fecha</label>
@@ -143,11 +143,185 @@
                         <div class="flight_data second_flight_data">
                             <div class="nontext_field">
                                 <label for="">Cantidad</label>
-                                <input class="flight_quantity" type="number" name="" value="0">
+                                <input class="flight_quantity" type="number" name="" min="1" max="99" value="1">
                             </div>
                             <div class="nontext_field">
                                 <label for="">Fecha</label>
                                 <select name="" id="">
+                                    <option value="">14/01/2024</option>
+                                    <option value="">15/01/2024</option>
+                                    <option value="">21/01/2024</option>
+                                    <option value="">22/01/2024</option>
+                                    <option value="">09/02/2024</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="checkout">
+                            <div class="payment">
+                                <label for="">Forma de pago</label>
+                                <select name="" id="">
+                                    <option value="1">Efectivo</option>
+                                    <option value="2">Visa</option>
+                                    <option value="3">Mastercard</option>
+                                    <option value="4">Mercado Pago</option>
+                                </select>
+                            </div>
+                            <div class="card_data text_field">
+                                <label for="">Tarjeta</label>
+                                <input type="text" name="" id="">
+                            </div>
+                            <div class="alias_data text_field">
+                                <label for="">Alias</label>
+                                <input type="text" name="" id="">
+                            </div>
+                        </div>
+
+                        <div class="total_price">
+                            <h3></h3>
+                        </div>
+                        
+                        <div class="submit_options">
+                            <button class="confirm" type="button">Completar compra</button>
+                        </div>
+                    </form>
+                    <div class="flight_confirmed">
+                        <h2>Tu vuelo ha sido registrado con exito</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="flight">
+                <div class="flight_title">
+                    <h2 name="Cordoba">Janeiro - Brasil</h2>
+                    <span class="flight_price">$ 84.118,92</span>
+                </div>
+                <div class="flight_content">
+                    <form class="form" action="">
+                        <div class="flight_data">
+                            <div class="text_field">
+                                <label for="">Nombre</label>
+                                <input id="" type="text" name="fname" placeholder="Ingrese su nombre">
+                            </div>
+                            <div class="text_field">
+                                <label for="">Apellido</label>
+                                <input id="" type="text" name="lname" placeholder="Ingrese su apellido">
+                            </div>
+                            <div class="nontext_field">
+                                <label for="">Cantidad</label>
+                                <input class="flight_quantity" type="number" name="" min="1" max="99" value="1">
+                            </div>
+                            <div class="nontext_field">
+                                <label for="">Fecha</label>
+                                <select name="" id="flight_date">
+                                    <option value="">07/01/2024</option>
+                                    <option value="">08/01/2024</option>
+                                    <option value="">14/01/2024</option>
+                                    <option value="">15/01/2024</option>
+                                    <option value="">02/02/2024</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="second_flight">
+                            <label for="">Pasaje de vuelta</label>
+                            <input class="second_flight_check" type="checkbox" name="">
+                        </div>
+
+                        <div class="flight_data second_flight_data">
+                            <div class="nontext_field">
+                                <label for="">Cantidad</label>
+                                <input class="flight_quantity" type="number" name="" min="1" max="99" value="1">
+                            </div>
+                            <div class="nontext_field">
+                                <label for="">Fecha</label>
+                                <select name="" id="flight_back_date">
+                                    <option value="">14/01/2024</option>
+                                    <option value="">15/01/2024</option>
+                                    <option value="">21/01/2024</option>
+                                    <option value="">22/01/2024</option>
+                                    <option value="">09/02/2024</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="checkout">
+                            <div class="payment">
+                                <label for="">Forma de pago</label>
+                                <select name="" id="">
+                                    <option value="1">Efectivo</option>
+                                    <option value="2">Visa</option>
+                                    <option value="3">Mastercard</option>
+                                    <option value="4">Mercado Pago</option>
+                                </select>
+                            </div>
+                            <div class="card_data text_field">
+                                <label for="">Tarjeta</label>
+                                <input type="text" name="" id="">
+                            </div>
+                            <div class="alias_data text_field">
+                                <label for="">Alias</label>
+                                <input type="text" name="" id="">
+                            </div>
+                        </div>
+
+                        <div class="total_price">
+                            <h3></h3>
+                        </div>
+                        
+                        <div class="submit_options">
+                            <button class="confirm" type="button">Completar compra</button>
+                        </div>
+                    </form>
+                    <div class="flight_confirmed">
+                        <h2>Tu vuelo ha sido registrado con exito</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="flight">
+                <div class="flight_title">
+                    <h2 name="Cordoba">Montevideo - Uruguay</h2>
+                    <span class="flight_price">$ 66.666,66</span>
+                </div>
+                <div class="flight_content">
+                    <form class="form" action="">
+                        <div class="flight_data">
+                            <div class="text_field">
+                                <label for="">Nombre</label>
+                                <input id="" type="text" name="fname" placeholder="Ingrese su nombre">
+                            </div>
+                            <div class="text_field">
+                                <label for="">Apellido</label>
+                                <input id="" type="text" name="lname" placeholder="Ingrese su apellido">
+                            </div>
+                            <div class="nontext_field">
+                                <label for="">Cantidad</label>
+                                <input class="flight_quantity" type="number" name="" min="1" max="99" value="1">
+                            </div>
+                            <div class="nontext_field">
+                                <label for="">Fecha</label>
+                                <select name="" id="flight_date">
+                                    <option value="">07/01/2024</option>
+                                    <option value="">08/01/2024</option>
+                                    <option value="">14/01/2024</option>
+                                    <option value="">15/01/2024</option>
+                                    <option value="">02/02/2024</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="second_flight">
+                            <label for="">Pasaje de vuelta</label>
+                            <input class="second_flight_check" type="checkbox" name="">
+                        </div>
+
+                        <div class="flight_data second_flight_data">
+                            <div class="nontext_field">
+                                <label for="">Cantidad</label>
+                                <input class="flight_quantity" type="number" name="" min="1" max="99" value="1">
+                            </div>
+                            <div class="nontext_field">
+                                <label for="">Fecha</label>
+                                <select name="" id="flight_back_date">
                                     <option value="">14/01/2024</option>
                                     <option value="">15/01/2024</option>
                                     <option value="">21/01/2024</option>
