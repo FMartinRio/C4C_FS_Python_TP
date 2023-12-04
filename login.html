@@ -12,12 +12,19 @@
 
     <main>
         <div id="login" class="login_form">
-            <form action="submit">
+            <form id="form" action="submit">
                 <h2>Inicio de sesión</h2>
+
                 <label for="user">Usuario o email:</label>
                 <input type="text" name="user" id="user" placeholder="Ingrese su usuario...">
+                <span id="user_warning" class="warning"></span>
+
                 <label for="pass">Contraseña:</label>
                 <input type="password" name="pass" id="pass" placeholder="Ingrese su contraseña...">
+                <span id="pass_warning" class="warning"></span>
+
+                <span><input type="checkbox" name="remember_me" id="remember_me"> <label for="remember_me">Recordame</label></span>
+
                 <button id="confirm_btn" type="button">Confirmar</button>
                 <a href="signin.html">Todavia no tenes cuenta?</a>
             </form>
@@ -25,6 +32,7 @@
     </main>
 
     <footer></footer>
+    <script src="js/login.js"></script>
     <script src="js/templates.js"></script>
 </body>
 </html>

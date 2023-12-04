@@ -121,7 +121,7 @@ form.addEventListener('submit', function(event) {
 
     .then(function (response) {
         if (response.ok) {
-            success = true;
+            window.location.href = 'login.html';
             return response.json();
         }
         if (response.status == 400) {
@@ -151,10 +151,6 @@ form.addEventListener('submit', function(event) {
     .catch(function (error) {
         console.error('Error:', error);
         alert('Error al registrar usuario.');
+        return false;
     });
-
-    
-    if (success) window.location.href = 'login.html';
-
-    return false;
 });

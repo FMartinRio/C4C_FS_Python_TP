@@ -1,3 +1,16 @@
+profilePic = 'img/icons/login.png';
+login = 'login.html';
+
+if (localStorage.getItem('userName')) {
+    profilePic = 'img/icons/users/pictures/' + localStorage.getItem('profilePic');
+    login = 'profile.html';
+}
+
+if (sessionStorage.getItem('userName')) {
+    profilePic = 'img/users/pictures/' + sessionStorage.getItem('profilePic');
+    login = 'profile.html';
+}
+
 let navTemplate = `
 <div class="nav_logo">
     <a href="index.html">
@@ -5,8 +18,8 @@ let navTemplate = `
     </a>
 </div>
 <div class="login_icon">
-    <a href="login.html">
-        <img src="img/icons/login.png" alt="login">
+    <a href=${login}>
+        <img src=${profilePic} alt="login">
     </a>
 </div>
 <ul id="desk_nav_list">

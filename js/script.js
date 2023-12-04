@@ -168,9 +168,8 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
+
 });
-
-
 
 // #Validacion .contact
 document.addEventListener("DOMContentLoaded", function() {

@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS user_account (
     pass VARCHAR(16) NOT NULL,
     birth_date DATE NOT NULL,
     wallet DECIMAL(7,2) NOT NULL DEFAULT 0,
-    profile_pic VARCHAR(20) NOT NULL DEFAULT 'default_picture.png',
+    profile_pic VARCHAR(50) NOT NULL DEFAULT 'default_picture.png',
     PRIMARY KEY(user_name),
     UNIQUE(mail)
 );

@@ -1,13 +1,4 @@
 import mysql.connector
-import os
-import time
-
-from flask import Flask, request, jsonify
-from flask_cors import CORS
-from werkzeug.utils import secure_filename
-
-app = Flask(__name__)
-CORS(app)
 
 class AccountManager:
     def __init__(self, host, user, password, database):
@@ -62,8 +53,8 @@ class AccountManager:
         self.cursor.close()
         self.cursor = self.conn.cursor(dictionary=True)
 
-    def GetUser(self, userName, userMail):
-        self.cursor.execute(f'SELECT * FROM user_account WHERE user_name = \'{userName}\' OR mail = \'{userMail}\'')
+    def GetUser(self, user):
+        self.cursor.execute(f'SELECT * FROM user_account WHERE user_name = \'{user}\' OR mail = \'{user}\'')
         return self.cursor.fetchone()
     
     def ListUsers(self):
@@ -88,41 +79,3 @@ class AccountManager:
         
         if (password == userAccount['password']):
             return True
-
-filePath = 'img/users/pictures/'
-manager = AccountManager('localhost', 'root', '', 'todoviajes')
-
-@app.route('/user_account', methods=['GET'])
-def ListUsers():
-    users = manager.ListUsers()
-    return jsonify(users)
-
-@app.route('/user_account/<user_name>/<user_mail>', methods=['GET'])
-def GetUser(user_name, user_mail):
-    user = manager.GetUser(user_name, user_mail)
-    if (user):
-        return jsonify(user)
-    else:
-        return 'Usuario no encontrado', 404
-    
-
-@app.route('/user_account', methods=['POST'])
-def SignUser():
-    name = request.form['user']
-    mail = request.form['mail']
-    password = request.form['password']
-    birthDate = request.form['birthDate']
-    profilePic = request.files['profilePic']
-    profilePicName = secure_filename(profilePic.filename)
-    
-    baseName, extension = os.path.splitext(profilePicName)
-    profilePicName = f"{baseName}_{int(time.time())}{extension}"
-    profilePic.save(os.path.join(filePath, profilePicName))
-    
-    if (manager.UserSignIn(name, mail, password, birthDate, profilePicName)):
-        return jsonify({"mensaje": "Usuario registrado exitosamente!"}), 201
-    else:
-        return jsonify({"mensaje": "El usuario ya existe"}), 400
-
-if __name__ == '__main__':
-    app.run(debug=True)
