@@ -114,7 +114,7 @@ form.addEventListener('submit', function(event) {
     formData.append('profilePic',
     profilePic.files[0]);
 
-    fetch(URL + 'user_account', {
+    fetch(URL + 'user_account/signin', {
         method: 'POST',
         body: formData
     })
@@ -151,6 +151,5 @@ form.addEventListener('submit', function(event) {
     .catch(function (error) {
         console.error('Error:', error);
         alert('Error al registrar usuario.');
-        return false;
     });
 });

@@ -1,13 +1,13 @@
-profilePic = 'img/icons/login.png';
+navProfilePic = 'img/icons/login.png';
 login = 'login.html';
 
 if (localStorage.getItem('userName')) {
-    profilePic = 'img/icons/users/pictures/' + localStorage.getItem('profilePic');
+    navProfilePic = 'img/users/pictures/' + localStorage.getItem('profilePic');
     login = 'profile.html';
 }
 
 if (sessionStorage.getItem('userName')) {
-    profilePic = 'img/users/pictures/' + sessionStorage.getItem('profilePic');
+    navProfilePic = 'img/users/pictures/' + sessionStorage.getItem('profilePic');
     login = 'profile.html';
 }
 
@@ -19,7 +19,7 @@ let navTemplate = `
 </div>
 <div class="login_icon">
     <a href=${login}>
-        <img src=${profilePic} alt="login">
+        <img src=${navProfilePic} alt="login">
     </a>
 </div>
 <ul id="desk_nav_list">

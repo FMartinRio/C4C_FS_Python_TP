@@ -53,8 +53,8 @@ class AccountManager:
         self.cursor.close()
         self.cursor = self.conn.cursor(dictionary=True)
 
-    def GetUser(self, user):
-        self.cursor.execute(f'SELECT * FROM user_account WHERE user_name = \'{user}\' OR mail = \'{user}\'')
+    def GetUser(self, user, mail):
+        self.cursor.execute(f'SELECT * FROM user_account WHERE user_name = \'{user}\' OR mail = \'{mail}\'')
         return self.cursor.fetchone()
     
     def ListUsers(self):
@@ -71,11 +71,36 @@ class AccountManager:
         self.cursor.execute(sql, values)
         self.conn.commit()
         return True
-    
-    def UserLogIn(self, userName, password):
-        userAccount = self.GetUser(userName)
-        if (not userAccount):
+        
+    def ChangeUserName(self, userName, newUserName):
+        if (self.GetUser(newUserName, newUserName)):
             return False
         
-        if (password == userAccount['password']):
-            return True
+        sql = '''   UPDATE user_account
+                    SET user_name = %s
+                    WHERE user_name = %s'''
+        values = (newUserName, userName)
+        self.cursor.execute(sql, values)
+        self.conn.commit()
+        return self.cursor.rowcount > 0
+    
+    def ChangeUserMail(self, mail, newMail):
+        if (self.GetUser(newMail, newMail)):
+            return False
+        
+        sql = '''   UPDATE user_account
+                    SET mail = %s
+                    WHERE mail = %s'''
+        values = (newMail, mail)
+        self.cursor.execute(sql, values)
+        self.conn.commit()
+        return self.cursor.rowcount > 0
+    
+    def DeleteUser(self, userName):
+        user = self.GetUser(userName, userName)
+        if (user):
+            self.cursor.execute(f'DELETE FROM user_account WHERE user_name = \'{userName}\'')
+            self.conn.commit()
+            return self.cursor.rowcount > 0
+        
+        return False

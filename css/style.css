@@ -755,6 +755,70 @@ footer img {
 }
 /* #endregion */
 
+/* #region UserProfile */
+#profile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#profile_header {
+    background-color: #356;
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#profile_header div {
+    padding: 5px;
+}
+
+#profile_header h1, #profile_header h3 {
+    width: 78%;
+    margin: 0;
+    padding: 0;
+    border-bottom: 2px solid black;
+    flex-grow: 1;
+    align-self: flex-end;
+}
+
+#profile_pic {
+    width: 100%;
+}
+
+#user_name_container, #user_mail_container {
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#user_info button {
+    all: unset;
+    width: auto;
+    height: 42px;
+    padding: 1px;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+#user_info button img {
+    max-height: 90%;
+    object-fit: fill;
+}
+
+#user_info input {
+    all: unset;
+    background-color: none;
+    width: 70%;
+    padding: .5rem;
+    border: none;
+    border-bottom: 2px solid black;
+    flex-grow: 1;
+}
+/* #endregion */
 .warning {
     color: var(--warning-color);
     /* text-shadow: 0 0 2px black; */
