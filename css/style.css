@@ -864,6 +864,7 @@ footer img {
     flex-grow: 1;
 }
 /* #endregion */
+
 .warning {
     color: var(--warning-color);
     /* text-shadow: 0 0 2px black; */
@@ -991,6 +992,31 @@ footer img {
 
     .login_form {
         width: fit-content;
+    }
+
+    #profile_header, #founds {
+        flex-direction: row;
+        flex-grow: 1;
+    }
+
+    #user_info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    #user_info div {
+        flex-grow: 0;
+    }
+
+    #flights_display {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #flights_display div {
+        flex-grow: 1;
+        margin: 1rem;
     }
 }
 

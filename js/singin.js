@@ -120,10 +120,9 @@ form.addEventListener('submit', function(event) {
 
     .then(function (response) {
         if (response.ok) {
-            window.location.href = 'login.html';
             return response.json();
-        }
-        if (response.status == 400) {
+        } else {
+            let data = response.json();
             formWarning.style.visibility = 'visible';
             formWarning.innerHTML = 'El usuario ya existe';
 
@@ -138,16 +137,16 @@ form.addEventListener('submit', function(event) {
                 mailWarning.innerHTML = 'El mail ya existe.';
                 mail.style.borderBottom = '3px solid red';
             }
-
             throw new Error('El usuario ya existe');
         }
     })
     
     .then(function () {
+        window.location.href = 'login.html';
         alert('Registro exitoso.');
     })
     .catch(function (error) {
+        alert('El usuario o mail ya esta en uso.')
         console.error('Error:', error);
-        alert('Error al registrar usuario.');
     });
 });

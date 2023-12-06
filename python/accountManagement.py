@@ -70,9 +70,9 @@ class AccountManager:
         if (user):
             with mysql.connector.connect(**connection_params) as connection:
                 with connection.cursor(dictionary=True) as cursor:
-                    sql =   f'''  SELECT ft.flight_id, ft.quantity, fl.takeoff_date, fl.takeoff_location, fl.destination
+                    sql =   f'''  SELECT DISTINCT ft.flight_id, ft.quantity, fl.takeoff_date, fl.takeoff_location, fl.destination
                                 FROM flight_ticket AS ft
-                                INNER JOIN user_account AS user ON ft.user_name = \'{userName}\'
+                                LEFT JOIN user_account AS user ON ft.user_name = \'{userName}\'
                                 INNER JOIN flight AS fl ON ft.flight_id = fl.id'''
                     cursor.execute(sql)
                     return cursor.fetchall()

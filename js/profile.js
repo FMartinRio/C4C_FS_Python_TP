@@ -78,6 +78,7 @@ fetch(URL + 'user_account/flight_tickets?user_name=' + encodeURIComponent(logine
 })
 
 .then(function(data) {
+    console.log(data)
     for(let ticket of data) {
         newFlight = document.createElement('div');
         flightTemplate = 
