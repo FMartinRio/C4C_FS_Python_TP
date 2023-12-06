@@ -26,7 +26,6 @@ def SignUser():
     name = request.form['user']
     mail = request.form['mail']
     password = request.form['password']
-    birthDate = request.form['birthDate']
     profilePic = request.files['profilePic']
     profilePicName = secure_filename(profilePic.filename)
     
@@ -34,7 +33,7 @@ def SignUser():
     profilePicName = f"{baseName}_{int(time.time())}{extension}"
     profilePic.save(os.path.join(filePath, profilePicName))
     
-    if (manager.UserSignIn(name, mail, password, birthDate, profilePicName)):
+    if (manager.UserSignIn(name, mail, password, profilePicName)):
         return jsonify({"mensaje": "Usuario registrado exitosamente!"}), 201
     else:
         return jsonify({"mensaje": "El usuario ya existe"}), 400

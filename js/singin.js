@@ -109,7 +109,6 @@ form.addEventListener('submit', function(event) {
     formData.append('user', user.value);
     formData.append('mail', mail.value);
     formData.append('password', pass.value);
-    formData.append('birthDate', birth.value);
     formData.append('profilePic',
     profilePic.files[0]);
 

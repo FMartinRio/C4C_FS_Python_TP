@@ -32,7 +32,6 @@ class AccountManager:
                                 user_name VARCHAR(16) NOT NULL,
                                 mail VARCHAR(20) NOT NULL,
                                 pass VARCHAR(16) NOT NULL,
-                                birth_date DATE NOT NULL,
                                 wallet DECIMAL(7,2) NOT NULL DEFAULT 0,
                                 PRIMARY KEY(id)
                             );''')
@@ -78,15 +77,15 @@ class AccountManager:
                     return cursor.fetchall()
         return False
 
-    def UserSignIn(self, userName, mail, password, birthDate, profilePic):
+    def UserSignIn(self, userName, mail, password, profilePic):
         if (self.GetUser(userName, mail)):
             return False
         
         with mysql.connector.connect(**connection_params) as connection:
                 with connection.cursor(dictionary=True) as cursor:
-                    sql = '''   INSERT INTO user_account(user_name, mail, pass, birth_date, wallet, profile_pic)
-                                VALUES(%s, %s, %s, %s, 0, %s)'''
-                    values = (userName, mail, password, birthDate, profilePic)
+                    sql = '''   INSERT INTO user_account(user_name, mail, pass, wallet, profile_pic)
+                                VALUES(%s, %s, %s, 0, %s)'''
+                    values = (userName, mail, password, profilePic)
                     cursor.execute(sql, values)
                     connection.commit()
         return True
