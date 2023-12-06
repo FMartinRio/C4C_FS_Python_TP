@@ -1,7 +1,25 @@
+navProfilePic = 'img/icons/login.png';
+login = 'login.html';
+
+if (localStorage.getItem('userName')) {
+    navProfilePic = 'img/users/pictures/' + localStorage.getItem('profilePic');
+    login = 'profile.html';
+}
+
+if (sessionStorage.getItem('userName')) {
+    navProfilePic = 'img/users/pictures/' + sessionStorage.getItem('profilePic');
+    login = 'profile.html';
+}
+
 let navTemplate = `
 <div class="nav_logo">
     <a href="index.html">
         <img src="img/icons/logo2.png" alt="site_logo">
+    </a>
+</div>
+<div class="login_icon">
+    <a href=${login}>
+        <img src=${navProfilePic} alt="login">
     </a>
 </div>
 <ul id="desk_nav_list">

@@ -87,6 +87,16 @@ nav {
     object-fit: fill;
 }
 
+.login_icon {
+    padding: 1rem 1.5rem;
+    text-align: center;
+}
+
+.login_icon img {
+    max-height: 100%;
+    object-fit: fill;
+}
+
 .nav_search_bar {
     display: flex;
     flex-direction: row;
@@ -693,6 +703,168 @@ footer img {
     /* #endregion */
 /* #endregion */
 
+/* #region LogIn */
+.login_form {
+    background-color: rgba(200, 200, 200, .8);
+    width: 80%;
+    margin: 5rem auto;
+    /* border: 2px solid black; */
+    border-radius: 10px;
+}
+
+.login_form h2 {
+    text-align: center;
+}
+
+.login_form form {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.login_form form * {
+    margin-block: 1rem;
+}
+
+.login_form form input {
+    background-color: rgba(50, 50, 50, .3);
+    color: white;
+    font-size: large;
+    margin-top: 0px;
+    padding: 1rem .5rem;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.login_form form input:focus {
+    outline: none;
+    border-bottom: 3px solid whitesmoke;
+}
+
+.login_form form button {
+    background-color: rgb(180, 180, 180);
+    width: fit-content;
+    margin-inline: auto;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.login_form ::placeholder {
+    color: rgba(200, 200, 200, .6);
+}
+/* #endregion */
+
+/* #region UserProfile */
+#profile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#profile button {
+    background-color: brown;
+    color: black;
+    width: 50%;
+    height: 4rem;
+    margin: 1rem auto;
+    border: none;
+    border-radius: 10rem;
+}
+
+#profile_header, #flights_display {
+    background-color: #356;
+    width: 100%;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#profile_header div, #founds {
+    padding: 5px;
+}
+
+#profile_header h1, #profile_header h3 {
+    width: 78%;
+    margin: 0;
+    padding: 0;
+    border-bottom: 2px solid black;
+    flex-grow: 1;
+    align-self: flex-end;
+}
+
+#profile_pic {
+    width: 100%;
+}
+
+#user_name_container, #user_mail_container, #founds {
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#user_info button, #founds button {
+    all: unset;
+    width: auto;
+    height: 42px;
+    padding: 1px;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+#user_info button img, #founds button img {
+    max-height: 90%;
+    object-fit: fill;
+}
+
+#user_info input, #founds input {
+    all: unset;
+    background-color: none;
+    width: 70%;
+    padding: .5rem;
+    border: none;
+    border-bottom: 2px solid black;
+    flex-grow: 1;
+}
+
+#wallet_info {
+    flex-grow: 1;
+    padding-right: 0 !important;
+}
+
+#wallet_info h3 {
+    width: 100%;
+}
+
+#card {
+    width: 70%;
+    border-right: 1px solid black;
+}
+
+#flights_display {
+    padding: .5rem;
+    border-top: 5px solid black;
+}
+
+#flights_display div {
+    background-color: #30A080;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+#flight_header, #flight_body {
+    display: flex;
+    justify-content: space-between;
+}
+
+#flight_header h4, #flight_body h4 {
+    border-top: 0;
+    flex-grow: 1;
+}
+/* #endregion */
+
 .warning {
     color: var(--warning-color);
     /* text-shadow: 0 0 2px black; */
@@ -816,6 +988,35 @@ footer img {
 
     .forecast .box {
         flex-grow: 1;
+    }
+
+    .login_form {
+        width: fit-content;
+    }
+
+    #profile_header, #founds {
+        flex-direction: row;
+        flex-grow: 1;
+    }
+
+    #user_info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    #user_info div {
+        flex-grow: 0;
+    }
+
+    #flights_display {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #flights_display div {
+        flex-grow: 1;
+        margin: 1rem;
     }
 }
 

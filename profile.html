@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+    <title>Perfil de usuario</title>
+</head>
+<body>
+    <nav></nav>
+
+    <main>
+        <div id="profile">
+            <div id="profile_header">
+                <img id="user_pic" src="img/users/pictures/default_picture.png" alt="foto de perfil">
+                <div id="user_info">
+                    <div id="user_name_container">
+                        <h1 id="user_name"></h1>
+                        <button id="edit_user"><img src="img/icons/edit.png" alt="editar usuario"></button>
+                        <input type="text" name="new_user" id="new_user">
+                        <button id="confirm_new_user"><img src="img/icons/confirm.png" alt="confirmar"></button>
+                    </div>
+                    <div id="user_mail_container">
+                        <h3 id="user_mail"></h3>
+                        <button id="edit_mail"><img src="img/icons/edit.png" alt="editar mail"></button>
+                        <input type="text" name="new_mail" id="new_mail">
+                        <button id="confirm_new_mail"><img src="img/icons/confirm.png" alt="confirmar"></button>
+                    </div>
+                </div>
+    
+                <div id="founds">
+                    <div id="wallet_info">
+                        <h3>Billetera</h3>
+                        <p id="user_wallet"></p>
+                    </div>
+                    <button id="add_founds"><img src="img/icons/add.png" alt="Ingresar fondos"></button>
+
+                    <input type="text" name="card" id="card" placeholder="Numero de 16 digitos">
+                    <input type="number" name="amount" id="amount" placeholder="Cantidad">
+                    <button id="confirm_import"><img src="img/icons/confirm.png" alt="Confirmar importe"></button>
+                    
+                </div>
+
+            </div>
+
+            <div id="flights_display">
+
+            </div>
+            
+            <button id="close_session">Cerrar Sesión</button>
+            <button id="delete_account">Borrar cuenta de Usuario</button>
+            <button id="confirm_delete">But are you sure about it?</button>
+        </div>
+    </main>
+
+    <footer></footer>
+    <script src="js/profile.js"></script>
+    <script src="js/templates.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+    <title>Registro</title>
+</head>
+<body>
+    <nav></nav>
+
+    <main>
+        <div id="signin" class="login_form">
+            <form id="form" enctype="multipart/form-data">
+                <h2>Registro</h2>
+                
+                <label for="user">Usuario:</label>
+                <input type="text" name="user" id="user" placeholder="Ingrese su usuario...">
+                <span id="user_warning" class="warning"></span>
+
+                <label for="mail">Email:</label>
+                <input type="text" name="mail" id="mail" placeholder="Ingrese su mail..." v-model="mail">
+                <span id="mail_warning" class="warning"></span>
+
+                <label for="pass">Contraseña:</label>
+                <input type="password" name="pass" id="pass" placeholder="Ingrese su contraseña..." v-model="pass">
+                <span id="pass_warning" class="warning">Contraseña invalida (entre 6 y 16 letras y/o numeros)</span>
+
+                <label for="dpass">Verificar contraseña:</label>
+                <input type="password" name="dpass" id="dpass" placeholder="Vuelva a ingresar contraseña..." v-model="dpass">
+                <span id="dpass_warning" class="warning">No coinciden las contraseñas</span>
+
+                <label for="birth">Fecha de nacimiento:</label>
+                <input type="date" name="birth" id="birth" v-model="birthDate">
+                <span id="birth_date_warning" class="warning">Debe ser mayor de 18</span>
+
+                <label for="profile_pic">Imagen de perfil:</label>
+                <input type="file" name="profile_pic" id="profile_pic">
+
+                <button id="confirm_btn" type="submit">Ingresar</button>
+                <span id="form_warning" class="warning"></span>
+
+                <a href="login.html">Ya tenes cuenta?</a>
+            </form>
+        </div>
+    </main>
+
+    <footer></footer>
+    <script src="js/singin.js"></script>
+    <script src="js/templates.js"></script>
+</body>
+</html>
