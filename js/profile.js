@@ -25,11 +25,21 @@ newMail.style.display = 'none';
 confirmNewMail.style.display = 'none';
 
 userWallet = document.querySelector('#user_wallet');
+addFounds = document.querySelector('#add_founds');
+cardNumber = document.querySelector('#card');
+amount = document.querySelector('#amount');
+confirmImport = document.querySelector('#confirm_import');
+cardNumber.style.display = 'none';
+amount.style.display = 'none';
+confirmImport.style.display = 'none';
+
 userPic = document.querySelector('#user_pic');
 closeSession = document.querySelector('#close_session');
 deleteUser = document.querySelector('#delete_account');
 confirmDelete = document.querySelector('#confirm_delete');
 confirmDelete.style.display = 'none';
+
+flightsDisplay = document.querySelector('#flights_display');
 
 fetch(URL + 'user_account/login?user_name=' + encodeURIComponent(loginedUser))
 
@@ -55,6 +65,44 @@ fetch(URL + 'user_account/login?user_name=' + encodeURIComponent(loginedUser))
     alert('Error al obtener el perfil');
     console.log(error);
 });
+
+let flightTemplate;
+fetch(URL + 'user_account/flight_tickets?user_name=' + encodeURIComponent(loginedUser))
+
+.then(function(response) {
+    if (response.ok) {
+        return response.json();
+    } else {
+        throw new Error('No se ningun pasaje.');
+    }
+})
+
+.then(function(data) {
+    for(let ticket of data) {
+        newFlight = document.createElement('div');
+        flightTemplate = 
+        `
+        <div id='flight_header'>
+            <h4>ID: ${ticket.flight_id}</h4>
+            <h4>Fecha: ${ticket.takeoff_date}</h4>
+            <h4>Pasajes: ${ticket.quantity}</h4>
+        </div>
+        <div id='flight_body'>
+            <h4>Despegue: ${ticket.takeoff_location}</h4>
+            <h4>Destino: ${ticket.destination}</h4>
+        </div>
+        `;
+        newFlight.innerHTML = flightTemplate;
+        flightsDisplay.appendChild(newFlight);
+    }
+})
+.catch(function() {
+    newFlight = document.createElement('div');
+    flightTemplate = 'No se encontro ningun pasaje';
+    newFlight.innerHTML = flightTemplate;
+    flightsDisplay.appendChild(newFlight);
+});
+
 
 
 editUser.addEventListener('click', function() {
@@ -182,6 +230,58 @@ confirmDelete.addEventListener('click', function() {
         alert('Error al eliminar usuario.');
     });
 });
+
+addFounds.addEventListener('click', function(){
+    cardNumber.style.display = 'block';
+    amount.style.display = 'block';
+    confirmImport.style.display = 'block';
+});
+
+confirmImport.addEventListener('click', function(){
+    validateCard = cardNumber.value.replace(/[^0-9]/g, '');
+    if (!/^[0-9]{16}$/.test(validateCard)){
+        cardNumber.value = 'Tarjeta invalida';
+        cardNumber.style.color = 'red';
+        return
+    }
+
+    if (amount.value < 1) {
+        amount.value = 0;
+        amount.style.color = 'red';
+        return
+    }
+
+    fetch(URL + 'user_account/add_founds?user_name=' + encodeURIComponent(currentUser)
+            + '&amount=' + encodeURIComponent(amount.value), {
+                method: 'PUT'
+            })
+
+    .then(function(response) {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('No se encontro la cuenta de usuario.');
+        }
+    })
+
+    .then(function () {
+        alert('Importe exitoso.');
+        window.location.reload();
+    })
+    .catch(function (error) {
+        console.error('Error:', error);
+        alert('Error al realizar importe.');
+    });
+});
+
+cardNumber.addEventListener('focus', function() {
+    cardNumber.style.color = 'black';
+});
+
+amount.addEventListener('focus', function() {
+    amount.style.color = 'black';
+});
+
 
 // newUser.addEventListener('blur', function() {
 //     newUser.value = '';

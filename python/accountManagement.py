@@ -1,5 +1,12 @@
 import mysql.connector
 
+connection_params = {
+    "host": "localhost",        # Replace with your MySQL server hostname or IP address
+    "user": "root",        # Replace with your MySQL username
+    "password": "",  # Replace with your MySQL password
+    "database": "todoviajes"  # Replace with the name of your MySQL database
+}
+
 class AccountManager:
     def __init__(self, host, user, password, database):
         self.conn = mysql.connector.connect(
@@ -49,58 +56,90 @@ class AccountManager:
                                     REFERENCES flight(id)
                             );''')
         self.conn.commit()
-        
         self.cursor.close()
-        self.cursor = self.conn.cursor(dictionary=True)
+        self.conn.close()
 
     def GetUser(self, user, mail):
-        self.cursor.execute(f'SELECT * FROM user_account WHERE user_name = \'{user}\' OR mail = \'{mail}\'')
-        return self.cursor.fetchone()
+        with mysql.connector.connect(**connection_params) as connection:
+            with connection.cursor(dictionary=True) as cursor:
+                cursor.execute(f'SELECT * FROM user_account WHERE user_name = \'{user}\' OR mail = \'{mail}\'')
+                return cursor.fetchone()
     
-    def ListUsers(self):
-        self.cursor.execute(f'SELECT * FROM user_account')
-        return self.cursor.fetchall()
+    def GetFlightTickets(self, userName):
+        user = self.GetUser(userName, userName)
+        if (user):
+            with mysql.connector.connect(**connection_params) as connection:
+                with connection.cursor(dictionary=True) as cursor:
+                    sql =   f'''  SELECT ft.flight_id, ft.quantity, fl.takeoff_date, fl.takeoff_location, fl.destination
+                                FROM flight_ticket AS ft
+                                INNER JOIN user_account AS user ON ft.user_name = \'{userName}\'
+                                INNER JOIN flight AS fl ON ft.flight_id = fl.id'''
+                    cursor.execute(sql)
+                    return cursor.fetchall()
+        return False
 
     def UserSignIn(self, userName, mail, password, birthDate, profilePic):
         if (self.GetUser(userName, mail)):
             return False
         
-        sql = '''   INSERT INTO user_account(user_name, mail, pass, birth_date, wallet, profile_pic)
-                    VALUES(%s, %s, %s, %s, 0, %s)'''
-        values = (userName, mail, password, birthDate, profilePic)
-        self.cursor.execute(sql, values)
-        self.conn.commit()
+        with mysql.connector.connect(**connection_params) as connection:
+                with connection.cursor(dictionary=True) as cursor:
+                    sql = '''   INSERT INTO user_account(user_name, mail, pass, birth_date, wallet, profile_pic)
+                                VALUES(%s, %s, %s, %s, 0, %s)'''
+                    values = (userName, mail, password, birthDate, profilePic)
+                    cursor.execute(sql, values)
+                    connection.commit()
         return True
         
     def ChangeUserName(self, userName, newUserName):
         if (self.GetUser(newUserName, newUserName)):
             return False
-        
-        sql = '''   UPDATE user_account
-                    SET user_name = %s
-                    WHERE user_name = %s'''
-        values = (newUserName, userName)
-        self.cursor.execute(sql, values)
-        self.conn.commit()
-        return self.cursor.rowcount > 0
+        with mysql.connector.connect(**connection_params) as connection:
+                with connection.cursor(dictionary=True) as cursor:
+                    sql = '''   UPDATE user_account
+                                SET user_name = %s
+                                WHERE user_name = %s'''
+                    values = (newUserName, userName)
+                    cursor.execute(sql, values)
+                    
+                    connection.commit()
+                    return cursor.rowcount > 0
     
     def ChangeUserMail(self, mail, newMail):
         if (self.GetUser(newMail, newMail)):
             return False
-        
-        sql = '''   UPDATE user_account
-                    SET mail = %s
-                    WHERE mail = %s'''
-        values = (newMail, mail)
-        self.cursor.execute(sql, values)
-        self.conn.commit()
-        return self.cursor.rowcount > 0
+        with mysql.connector.connect(**connection_params) as connection:
+                with connection.cursor(dictionary=True) as cursor:
+                    sql = '''   UPDATE user_account
+                                SET mail = %s
+                                WHERE mail = %s'''
+                    values = (newMail, mail)
+                    cursor.execute(sql, values)
+                    connection.commit()
+                    return cursor.rowcount > 0
+    
+    def AddFounds(self, userName, amount):
+        user = self.GetUser(userName, userName)
+        if (user):
+            with mysql.connector.connect(**connection_params) as connection:
+                with connection.cursor(dictionary=True) as cursor:
+                    newFounds = float(user['wallet']) + float(amount);
+                    sql = ('''  UPDATE user_account
+                                SET wallet = %s
+                                WHERE user_name = %s''')
+                    values = (newFounds, userName)
+                    cursor.execute(sql, values)
+                    connection.commit()
+                    return cursor.rowcount > 0
+        return False
     
     def DeleteUser(self, userName):
         user = self.GetUser(userName, userName)
         if (user):
-            self.cursor.execute(f'DELETE FROM user_account WHERE user_name = \'{userName}\'')
-            self.conn.commit()
-            return self.cursor.rowcount > 0
+            with mysql.connector.connect(**connection_params) as connection:
+                with connection.cursor(dictionary=True) as cursor:
+                    cursor.execute(f'DELETE FROM user_account WHERE user_name = \'{userName}\'')
+                    connection.commit()
+                    return cursor.rowcount > 0
         
         return False

@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS user_account (
     mail VARCHAR(20) NOT NULL,
     pass VARCHAR(16) NOT NULL,
     birth_date DATE NOT NULL,
-    wallet DECIMAL(7,2) NOT NULL DEFAULT 0,
+    wallet DECIMAL(9,2) NOT NULL DEFAULT 0,
     profile_pic VARCHAR(50) NOT NULL DEFAULT 'default_picture.png',
     PRIMARY KEY(user_name),
     UNIQUE(mail)
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS flight (
     takeoff_date DATETIME NOT NULL,
     takeoff_location VARCHAR(20) NOT NULL,
     destination VARCHAR(20) NOT NULL,
-    price DECIMAL(6,2) NOT NULL,
+    price DECIMAL(9,2) NOT NULL,
     PRIMARY KEY(id)
 );
 
@@ -25,8 +25,18 @@ CREATE TABLE IF NOT EXISTS flight_ticket (
     user_name VARCHAR(16) NOT NULL,
     flight_id INT NOT NULL,
     quantity INT NOT NULL DEFAULT 1,
-    FOREIGN KEY(user_name)
-	REFERENCES user_account(user_name),
-    FOREIGN KEY(flight_id)
-	REFERENCES flight(id)
+    CONSTRAINT fk_user_name FOREIGN KEY(user_name)
+	REFERENCES user_account(user_name) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT fk_flight_id FOREIGN KEY(flight_id)
+	REFERENCES flight(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
+
+ALTER TABLE flight_ticket
+DROP FOREIGN KEY user_name,
+DROP FOREIGN KEY flight_id,
+ADD CONSTRAINT fk_user_name
+FOREIGN KEY(user_name)
+	REFERENCES user_account(user_name) ON UPDATE CASCADE ON DELETE CASCADE,
+ADD CONSTRAINT fk_flight_id
+FOREIGN KEY(flight_id)
+	REFERENCES flight(id) ON UPDATE CASCADE ON DELETE CASCADE;

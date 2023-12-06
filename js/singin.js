@@ -104,7 +104,6 @@ form.addEventListener('submit', function(event) {
         return
     }
 
-    success = false;
     formData = new FormData();
 
     formData.append('user', user.value);
@@ -142,7 +141,6 @@ form.addEventListener('submit', function(event) {
 
             throw new Error('El usuario ya existe');
         }
-        throw new Error('Something went wrong');
     })
     
     .then(function () {

@@ -12,11 +12,6 @@ CORS(app)
 filePath = 'img/users/pictures/'
 manager = accountManagement.AccountManager('localhost', 'root', '', 'todoviajes')
 
-@app.route('/user_accounts', methods=['GET'])
-def ListUsers():
-    users = manager.ListUsers()
-    return jsonify(users)
-
 @app.route('/user_account/login', methods=['GET'])
 def LoginUser():
     userName = request.args.get('user_name')
@@ -62,6 +57,24 @@ def ChangeMail():
     else:
         return jsonify({'mensaje': 'El email ya esta en uso'}), 400
 
+@app.route('/user_account/add_founds', methods=['PUT'])
+def AddFounds():
+    userName = request.args.get('user_name')
+    amount = request.args.get('amount')
+    if (manager.AddFounds(userName, amount)):
+        return jsonify({'mensaje': 'Importe exitoso.'}), 201
+    else:
+        return jsonify({'mensaje': 'No se pudo encontrar la cuenta de usuario.'}), 404
+    
+@app.route('/user_account/flight_tickets', methods=['GET'])
+def GetFlightTickets():
+    userName = request.args.get('user_name')
+    tickets = manager.GetFlightTickets(userName)
+    if (tickets):
+        return jsonify(tickets)
+    else:
+        return jsonify({'mensaje': 'No se pudo encontrar la cuenta de usuario'}), 404
+    
 @app.route('/user_account/delete', methods=["DELETE"])
 def DeleteUser():
     userName = request.args.get('user')
