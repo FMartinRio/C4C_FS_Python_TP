@@ -2,12 +2,12 @@ navProfilePic = 'img/icons/login.png';
 login = 'login.html';
 
 if (localStorage.getItem('userName')) {
-    navProfilePic = 'img/users/pictures/' + localStorage.getItem('profilePic');
+    navProfilePic = 'https://www.pythonanywhere.com/user/KrawLing/files/home/KrawLing/mysite/static/img' + localStorage.getItem('profilePic');
     login = 'profile.html';
 }
 
 if (sessionStorage.getItem('userName')) {
-    navProfilePic = 'img/users/pictures/' + sessionStorage.getItem('profilePic');
+    navProfilePic = 'https://www.pythonanywhere.com/user/KrawLing/files/home/KrawLing/mysite/static/img' + sessionStorage.getItem('profilePic');
     login = 'profile.html';
 }
 
