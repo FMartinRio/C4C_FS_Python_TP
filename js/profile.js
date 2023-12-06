@@ -1,4 +1,4 @@
-const URL = "http://krawling.pythonanywhere.com/";
+const URL = "https://krawling.pythonanywhere.com/";
 const profilePicPath = 'https://www.pythonanywhere.com/user/KrawLing/files/home/KrawLing/mysite/static/img';
 
 loginedUser = localStorage.getItem('userName');

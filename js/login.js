@@ -1,4 +1,4 @@
-const URL = "http://krawling.pythonanywhere.com/";
+const URL = "https://krawling.pythonanywhere.com/";
 
 submit = document.querySelector("#confirm_btn");
 user = document.querySelector("#user");
