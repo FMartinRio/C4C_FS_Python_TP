@@ -1,4 +1,4 @@
-const URL = "http://127.0.0.1:5000/";
+const URL = "http://krawling.pythonanywhere.com/";
 const profilePicPath = 'img/users/pictures/';
 
 loginedUser = localStorage.getItem('userName');

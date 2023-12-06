@@ -1,5 +1,5 @@
 const SIGNINFORM = document.querySelector("#signin");
-const URL = "http://127.0.0.1:5000/"
+const URL = "http://krawling.pythonanywhere.com/";
 
 form = SIGNINFORM.querySelector("#form");
 send = SIGNINFORM.querySelector("#confirm_btn");
